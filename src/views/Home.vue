@@ -1,9 +1,10 @@
 <template>
-  <main v-if ="!loading">
-    Datos
+  <main v-if="!loading">
+    <DataTitle :text="title" :dataDate="dataDate" /> 
   </main>
 
-  <main class="flex flex-col align-centrer justify-center text-center" v-else>
+  <main class="flex flex-col align-centrer justify-center
+             text-center" v-else>
       <div class="text-gray-500 text-3xl mt-10 mb-6">
       Datos en vivo:
       </div>
@@ -13,9 +14,15 @@
 </template>
 
 <script>
+
+import DataTitle from '@/components/DataTitle'
+
+
 export default {
   name: 'Home',
-  components: {},
+  components: {
+    DataTitle,
+  },
   data(){
     return {
       loading: true,
@@ -23,12 +30,12 @@ export default {
       dataDate: '',
       stats: {},
       countries: [],
-      loadingImage: require('../assets/lavadomanos.webp')
+      loadingImage: require('../assets/covid.gif')
 
     }
   },
   methods:{
-
+    
    async fetchCovidData() {
      const res = await fetch('https://api.covid19api.com/summary');
      const data = res.json();
@@ -37,11 +44,13 @@ export default {
    },
 
   async created(){
-    const data = this.fetchCovidData();
+    const data = await this.fetchCovidData();
+
     this.dataDate = data.Date;
     this.stats = data.Global;
     this.countries = data.Countries;
     this.loading = false;
+    
   },
 
 }

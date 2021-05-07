@@ -3,13 +3,14 @@
     <div class="text-3xl md:text-5xl font-bold mb-3">
         <i class="fa fa-viruses"></i> COVID-19 Seguimiento
     </div>
-    <p>API by <a class="text-blue-300" href="http://covid19api.com" target="_blank">covid19api.com</a></p>
+    <p>API by <a class="text-blue-300" href="http://covid19api.com" 
+                   target="_blank">covid19api.com</a></p>
  </header>
 </template>
 
 <script>
 export default {
   name: 'Header'
-}
+} 
 </script>
 
