@@ -3,6 +3,17 @@
     <DataTitle :text="title" :dataDate="dataDate" /> 
 
     <DataBoxes :stats="stats" />
+
+    <DataPais @get-country="getCountrydata" :countries="countries" />
+
+    <button 
+          @Click="refrescarDatos"
+          v-if="stats.Country"
+          class="bg-red-800 text-white rounded p-3 
+          mt-6 mb-4 focus:uotline-none hover:bg-red-900">
+    Refrescar Datos          
+    </button>
+
   </main>
 
   <main class="flex flex-col align-centrer justify-center
@@ -19,6 +30,7 @@
 
 import DataTitle from '@/components/DataTitle'
 import DataBoxes from '@/components/DataBoxes'
+import DataPais from '@/components/DataPais'
 
 
 
@@ -27,11 +39,12 @@ export default {
   components: {
     DataTitle,
     DataBoxes,
+    DataPais,
   },
   data(){
     return {
       loading: true,
-      title: 'Global',
+      title: 'GLOBAL',
       dataDate: '',
       stats: {},
       countries: [],
@@ -45,12 +58,24 @@ export default {
      const res = await fetch('https://api.covid19api.com/summary');
      const data = res.json();
      return data;
-     }
-   },
+     },
 
+    getCountrydata(country){
+      this.stats = country
+      this.title = country.Country
+    },
+
+    async refrescarDatos(){
+      this.loading = true
+      const data = await this.fetchCovidData()
+      this.title = 'GLOBAL'
+      this.stats = data.Global
+      this.loading = false
+    }
+
+   },
   async created(){
     const data = await this.fetchCovidData();
-
     this.dataDate = data.Date;
     this.stats = data.Global;
     this.countries = data.Countries;
