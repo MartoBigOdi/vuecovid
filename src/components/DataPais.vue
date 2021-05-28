@@ -2,7 +2,7 @@
    <select @change="onChange()"
         v-model="selected" 
         class="form-select mt-10 block mb-4
-                w-full border p-3 rounded bg-blue-100"> 
+                w-full border p-3 rounded bg-green-100"> 
 
    <option value="0"> Seleccionar Pais </option>
    <option v-for="country in countries" :value="country.ID">

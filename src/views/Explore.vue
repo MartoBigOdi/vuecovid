@@ -1,28 +1,34 @@
 <template>
-	<main v-if="!loading">
-		<DataTitle :text="title" :dataDate="dataDate" />
 
-		<DataBoxes :stats="stats" />
+	<!--Loading-->
+	<main v-if="!loading">
+
+		<!-- Components -->
+		<DataTitle :text="title" :dataDate="dataDate" />
 
 		<DataPais @get-country="getCountrydata" :countries="countries" />
 
+		<DataBoxes :stats="stats" />
+
+		<!--Btn refresh-->
 		<button
 			@Click="refrescarDatos"
 			v-if="stats.Country"
-			class="bg-red-800 text-white rounded p-3 
+			class="bg-green-800 text-white rounded p-3 
           mt-6 mb-4 focus:uotline-none hover:bg-red-900"
 		>
 			Refrescar Datos
 		</button>
 	</main>
 
+	<!--Loading-->
 	<main
 		class="flex flex-col align-centrer justify-center
              text-center"
 		v-else
 	>
 		<div class="text-gray-500 text-3xl mt-10 mb-6">
-			Datos en vivo:
+			Esperando Datos:
 		</div>
 		<img :src="loadingImage" class="w-24 m-auto" alt="" />
 	</main>
@@ -43,7 +49,7 @@ export default {
 	data() {
 		return {
 			loading: true,
-			title: 'GLOBAL',
+			title: 'Datos Globales, por favor seleccione un país',
 			dataDate: '',
 			stats: {},
 			countries: [],

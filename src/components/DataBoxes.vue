@@ -1,8 +1,8 @@
 <template>
     <div class="grid md:grid-cols-2 gap-4">
     <!-- Box  -->
-    <div class="shadow-md bg-blue-100 p-10 text-center rounded">
-    <h3 class="text-3xl text-blue-900 font-bold mb-4">
+    <div class="shadow-md bg-green-100 p-10 text-center rounded">
+    <h3 class="text-3xl text-green-900 font-bold mb-4">
     Casos
     </h3>
         <div class="text-2xl mb-4">
@@ -17,8 +17,8 @@
     <!-- Fin Box -->
 
     <!-- Box  -->
-    <div class="shadow-md bg-blue-100 p-10 text-center rounded">
-    <h3 class="text-3xl text-blue-900 font-bold mb-4">
+    <div class="shadow-md bg-green-100 p-10 text-center rounded">
+    <h3 class="text-3xl text-green-900 font-bold mb-4">
     Fallecidos
     </h3>
         <div class="text-2xl mb-4">
@@ -33,8 +33,8 @@
     <!-- Fin Box -->
 
     <!-- Box  -->
-    <div class="shadow-md bg-blue-100 p-10 text-center rounded">
-    <h3 class="text-3xl text-blue-900 font-bold mb-4">
+    <div class="shadow-md bg-green-100 p-10 text-center rounded mb-4">
+    <h3 class="text-3xl text-green-900 font-bold mb-4">
     Recuperados
     </h3>
         <div class="text-2xl mb-4">
