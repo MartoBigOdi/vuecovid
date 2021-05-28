@@ -4,8 +4,6 @@
 
 		<DataBoxes :stats="stats" />
 
-	
-
 		<button
 			@Click="refrescarDatos"
 			class="bg-green-800 text-white rounded p-3 
