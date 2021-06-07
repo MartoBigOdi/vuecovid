@@ -18,11 +18,6 @@ const routes = [
 		name: 'Mercosur',
 		component: Dashboard,
 	},
-	{
-		path: '/seguimiento',
-		name: 'Tracking',
-		component: Dashboard,
-	},
 ];
 
 const router = createRouter({

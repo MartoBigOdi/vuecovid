@@ -1,8 +1,6 @@
 <template>
-
 	<!--Loading-->
 	<main v-if="!loading">
-
 		<!-- Components -->
 		<DataTitle :text="title" :dataDate="dataDate" />
 
@@ -18,6 +16,16 @@
           mt-6 mb-4 focus:uotline-none hover:bg-red-900"
 		>
 			Refrescar Datos
+		</button>
+
+		<!--Add country-->
+		<button
+			@Click="addCountry"
+			v-if="stats.Country"
+			class="bg-green-800 text-white rounded p-3 
+          mt-6 mb-4 focus:uotline-none hover:bg-green-900"
+		>
+			Seguir pais
 		</button>
 	</main>
 
@@ -60,7 +68,7 @@ export default {
 		async fetchCovidData() {
 			const res = await fetch('https://api.covid19api.com/summary');
 			const data = await res.json();
-			console.log(data);
+			//console.log(data);
 			return data;
 		},
 
@@ -75,6 +83,10 @@ export default {
 			this.title = 'GLOBAL';
 			this.stats = data.Global;
 			this.loading = false;
+		},
+		async addCountry() {
+			console.log(this.stats);
+			this.$store.commit('addCountry', this.stats);
 		},
 	},
 	async created() {

@@ -40,14 +40,6 @@
 						Mercosur
 					</router-link>
 				</li>
-				<li class="pl-4 pr-8">
-					<router-link
-						to="/seguimiento"
-						class="inline-block cursor-pointer transition duration-700 ease-in-out hover:text-gray-400 font-bold p-3"
-					>
-						Seguimiento Paises
-					</router-link>
-				</li>
 			</ul>
 		</nav>
 	</header>
