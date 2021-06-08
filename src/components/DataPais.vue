@@ -1,7 +1,7 @@
 <template>
    <select @change="onChange()"
         v-model="selected" 
-        class="form-select mt-10 block mb-4
+        class="form-select block mb-4
                 w-full border p-3 rounded bg-green-100"> 
 
    <option value="0"> Seleccionar Pais </option>

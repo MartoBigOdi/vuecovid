@@ -1,10 +1,12 @@
 <template>
+<!-- Para continuar 
 	<div class="charts-container">
 		<h2>Dashboard</h2>
 		<p>Aqui iran charts para mostrar data graficamente</p>
 	</div>
+	-->
 	<div class="followed-container">
-		<h2 class="text-gray-500 text-3xl mt-10 mb-6">Paises en seguimiento</h2>
+		<h2 class="text-3xl font-bold mt-10">Paises en seguimiento</h2>
 		<div v-if="followedCountries.length > 0">
 			<ul>
 				<li v-for="followedCountry in followedCountries">
@@ -31,7 +33,7 @@ export default {
 	},
 	computed: {
 		followedCountries() {
-			return this.$store.getters.getCountries;
+			return store.getters.getCountries;
 		},
 	},
 	data() {

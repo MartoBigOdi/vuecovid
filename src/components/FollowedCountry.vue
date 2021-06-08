@@ -1,5 +1,5 @@
 <template>
-	<table class="bg-green-500 shadow-xl">
+	<table class="bg-green-100 shadow-xl">
 		<thead>
 			<tr>
 				<th>Pais</th>
@@ -10,16 +10,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr class="font-bold">
 				<td>{{ countryData.Country }}</td>
 				<td>{{ countryData.TotalConfirmed }}</td>
 				<td>{{ countryData.TotalDeaths }}</td>
 				<td>{{ countryData.TotalRecovered }}</td>
 				<td>
-					<button class="bg-blue-500">Ver gráfica</button>
-					<button @click="stopFollowing" class="bg-red-500">
-						Dejar de seguir
-					</button>
+					<button class="bg-blue-500 font-bold p-4 mb-4">📈</button>
+					<button @Click="stopFollowing" class="bg-red-500 font-bold p-4 mb-4">❌</button>
 				</td>
 			</tr>
 		</tbody>
@@ -27,7 +25,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+
 import store from '../store';
 
 export default {
@@ -38,12 +36,13 @@ export default {
 			country: {},
 		};
 	},
+	//Removemos el objeto del array
 	methods: {
 		stopFollowing() {
 			store.commit('removeCountry', this.country.ID);
 		},
 	},
-	async created() {
+	    created() {
 		this.country = this.countryData;
 	},
 };
@@ -55,7 +54,7 @@ table {
 	border-radius: 30px;
 	text-align: center;
 	padding: 20px 0;
-	margin: 20px 0;
+	margin: 30px 0;
 }
 table th {
 	padding: 5px 0;
@@ -67,7 +66,6 @@ table td {
 }
 table td button {
 	margin: 0 5px;
-	padding: 5px 10px;
 	border-radius: 30px;
 	font-size: 12px;
 	outline: none;

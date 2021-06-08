@@ -4,16 +4,12 @@
 		<!-- Components -->
 		<DataTitle :text="title" :dataDate="dataDate" />
 
-		<DataPais @get-country="getCountrydata" :countries="countries" />
-
-		<DataBoxes :stats="stats" />
-
-		<!--Btn refresh-->
+				<!--Btn refresh-->
 		<button
 			@Click="refrescarDatos"
 			v-if="stats.Country"
-			class="bg-green-800 text-white rounded p-3 
-          mt-6 mb-4 focus:uotline-none hover:bg-red-900"
+			class="bg-green-800 text-white rounded p-4
+          focus:uotline-none hover:bg-red-900"
 		>
 			Refrescar Datos
 		</button>
@@ -22,11 +18,16 @@
 		<button
 			@Click="addCountry"
 			v-if="stats.Country"
-			class="bg-green-800 text-white rounded p-3 
-          mt-6 mb-4 focus:uotline-none hover:bg-green-900"
+			class="bg-green-800 text-white rounded p-4
+          m-4 focus:uotline-none hover:bg-green-900"
 		>
 			Seguir pais
 		</button>
+
+		<DataPais @get-country="getCountrydata" :countries="countries" />
+
+		<DataBoxes :stats="stats" />
+
 	</main>
 
 	<!--Loading-->
