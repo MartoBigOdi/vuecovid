@@ -46,6 +46,7 @@
 import DataTitle from '@/components/DataTitle';
 import DataBoxes from '@/components/DataBoxes';
 import DataPais from '@/components/DataPais';
+import store from '../store';
 
 export default {
 	name: 'Explore',
@@ -86,7 +87,7 @@ export default {
 		},
 		async addCountry() {
 			console.log(this.stats);
-			this.$store.commit('addCountry', this.stats);
+			store.commit('addCountry', this.stats);
 		},
 	},
 	async created() {

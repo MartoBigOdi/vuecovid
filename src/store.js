@@ -15,6 +15,19 @@ const store = createStore({
 				state.followedCountries.push(country);
 			}
 		},
+		removeCountry(state, countryID) {
+			console.log('on erasing...');
+			console.log(state.followedCountries);
+			const tmpFollowedCountrires = state.followedCountries.filter(
+				(item) => item.ID !== countryID
+			);
+			console.log(tmpFollowedCountrires);
+
+			state.followedCountries = tmpFollowedCountrires;
+		},
+	},
+	getters: {
+		getCountries: (state) => state.followedCountries,
 	},
 });
 
