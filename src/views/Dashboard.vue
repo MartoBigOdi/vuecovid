@@ -1,16 +1,16 @@
 <template>
-	<!-- Para continuar 
-	<div class="charts-container">
-		<h2>Dashboard</h2>
-		<p>Aqui iran charts para mostrar data graficamente</p>
-	</div>
-	-->
 	<div class="followed-container">
 		<h2 class="text-3xl font-bold mt-10">Paises en seguimiento</h2>
-		<div v-if="followedCountries.length > 0">
+		<div v-if="followedCountriesData.length > 0">
 			<ul>
-				<li v-for="followedCountry in followedCountries">
-					<FollowedCountry :countryData="followedCountry" />
+				<li
+					v-for="(followedCountry, index) in followedCountriesData"
+					:key="followedCountry.ID"
+				>
+					<FollowedCountry
+						:countryJsonID="followedCountry.id"
+						:countryData="followedCountry.country"
+					/>
 				</li>
 			</ul>
 		</div>
@@ -30,20 +30,14 @@ export default {
 	components: {
 		FollowedCountry,
 	},
-	computed: {
-		followedCountries() {
-			return this.$store.getters.getCountries;
-		},
-	},
 	data() {
 		return {
-			loading: true,
-			title: 'GLOBAL',
-			dataDate: '',
-			stats: {},
-			countries: [],
-			loadingImage: require('../assets/covid.gif'),
+			followedCountriesData: [],
 		};
+	},
+	async created() {
+		const data = await this.$store.getters.getCountries;
+		this.followedCountriesData = data;
 	},
 };
 </script>

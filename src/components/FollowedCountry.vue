@@ -18,7 +18,7 @@
 				<td>
 					<button class="bg-blue-500 font-bold p-4 mb-4">📈</button>
 					<button
-						@click="stopFollowing(countryData.ID)"
+						@click="stopFollowing(countryJsonID)"
 						class="bg-red-500 font-bold p-4 mb-4"
 					>
 						❌
@@ -32,11 +32,11 @@
 <script>
 export default {
 	name: 'FollowedCountry',
-	props: ['countryData'],
+	props: ['countryData', 'countryJsonID'],
 	//Removemos el objeto del array
 	methods: {
-		stopFollowing(countryDataID) {
-			this.$store.commit('removeCountry', countryDataID);
+		async stopFollowing(countryJsonID) {
+			await this.$store.commit('removeCountry', countryJsonID);
 		},
 	},
 };
