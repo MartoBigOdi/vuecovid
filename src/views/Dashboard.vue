@@ -1,5 +1,5 @@
 <template>
-<!-- Para continuar 
+	<!-- Para continuar 
 	<div class="charts-container">
 		<h2>Dashboard</h2>
 		<p>Aqui iran charts para mostrar data graficamente</p>
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import store from '../store';
 import FollowedCountry from '@/components/FollowedCountry';
 
 export default {
@@ -33,7 +32,7 @@ export default {
 	},
 	computed: {
 		followedCountries() {
-			return store.getters.getCountries;
+			return this.$store.getters.getCountries;
 		},
 	},
 	data() {

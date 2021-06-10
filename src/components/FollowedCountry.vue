@@ -17,7 +17,12 @@
 				<td>{{ countryData.TotalRecovered }}</td>
 				<td>
 					<button class="bg-blue-500 font-bold p-4 mb-4">📈</button>
-					<button @Click="stopFollowing" class="bg-red-500 font-bold p-4 mb-4">❌</button>
+					<button
+						@click="stopFollowing(countryData.ID)"
+						class="bg-red-500 font-bold p-4 mb-4"
+					>
+						❌
+					</button>
 				</td>
 			</tr>
 		</tbody>
@@ -25,25 +30,14 @@
 </template>
 
 <script>
-
-import store from '../store';
-
 export default {
 	name: 'FollowedCountry',
 	props: ['countryData'],
-	data() {
-		return {
-			country: {},
-		};
-	},
 	//Removemos el objeto del array
 	methods: {
-		stopFollowing() {
-			store.commit('removeCountry', this.country.ID);
+		stopFollowing(countryDataID) {
+			this.$store.commit('removeCountry', countryDataID);
 		},
-	},
-	    created() {
-		this.country = this.countryData;
 	},
 };
 </script>
